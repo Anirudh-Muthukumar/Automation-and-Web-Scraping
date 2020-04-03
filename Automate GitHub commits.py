@@ -25,6 +25,9 @@ codeforces_dir = '/Users/anirudhmuthukumar/Documents/Programs/Codeforces/'
 spoj_repo = 'https://github.com/Anirudh-Muthukumar/SPOJ-Solutions'
 spoj_dir = '/Users/anirudhmuthukumar/Documents/Programs/SPOJ/'
 
+cpp_repo = 'https://github.com/Anirudh-Muthukumar/CPP-Code'
+cpp_dir = '/Users/anirudhmuthukumar/Documents/Programs/C++/'
+
 '''
 Steps:
 1. Go to directory from which you want to add files
@@ -282,6 +285,36 @@ def commit_SPOJ():
         print("\nSuccesfully added files to SPOJ repo!!!!\n")
 
 
+def commit_CPP():
+    print("\nAdding files to CPP repository...")
+
+    # 1. Go to specified directory 
+    os.chdir(cpp_dir)
+
+    # 2. Initialize repository
+    init_command = subprocess.run(["git", "init"])
+    # print("The exit code for init_command is %d" % init_command.returncode)
+
+    # 3. Add files to be committed
+    add_command = subprocess.run(["git", "add", "."])
+    # print("The exit code for add_command is %d" % init_command.returncode)
+
+
+    # 4. Commit the repo to save the changes 
+    commit_command = subprocess.run(["git", "commit", "-m", "adding more files"])
+    # print("The exit code for commint_command is %d" % commit_command.returncode)
+
+    # 5. Add remote repository 
+    add_remote_repo_command = subprocess.run(["git", "remote", "add", "origin", cpp_repo])
+    # print("The exit code for add_remote_repo_command is %d" % add_remote_repo_command.returncode)
+
+    # 6. Push the changes 
+    push_command = subprocess.run(["git", "push", "-f", "origin", "master"])
+    push_success = push_command.returncode
+
+    if push_success == 0 :
+        print("\nSuccesfully added files to CPP repo!!!!\n")
+
 if __name__ == '__main__':
 
     print("Menu : ")
@@ -293,6 +326,7 @@ if __name__ == '__main__':
     print("6. Codeforces")
     print("7. TopCoder")
     print("8. SPOJ")
+    print("9. CPP")
     repo = [int(i) for i in input("Enter the repositories to commit: ").split()]
 
     if 1 in repo:
@@ -311,4 +345,6 @@ if __name__ == '__main__':
         commit_TopCoder()
     if 8 in repo:
         commit_SPOJ()
+    if 9 in repo:
+        commit_CPP()
     
