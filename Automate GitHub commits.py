@@ -1,5 +1,6 @@
 import subprocess 
 import os
+from datetime import datetime
 
 dp_top50_repo = 'https://github.com/Anirudh-Muthukumar/Top-50-Dynamic-Programming-Problems'
 dp_top50_dir = '/Users/anirudhmuthukumar/Documents/Programs/DP top 50/'
@@ -10,7 +11,7 @@ gfg_dir = '/Users/anirudhmuthukumar/Documents/Programs/GeeksforGeeks/'
 leetcode_repo = 'https://github.com/Anirudh-Muthukumar/Leetcode-solutions'
 leetcode_dir = '/Users/anirudhmuthukumar/Documents/Programs/Leetcode/'
 
-bt_top20_repo = 'https://github.com/Anirudh-Muthukumar/Top-20-Backtracking-Algorithms'
+bt_top20_repo = 'https://github.com/Anirudh-Muthukumar/To2p-20-Backtracking-Algorithms'
 bt_top20_dir = '/Users/anirudhmuthukumar/Documents/Programs/BT Top 20/'
 
 codechef_repo = 'https://github.com/Anirudh-Muthukumar/CodeChef-Solutions'
@@ -39,6 +40,7 @@ Steps:
 7. git push -f origin master
 '''
 
+timestamp = str(datetime.today().month) + str(datetime.today().day) + str(datetime.today().year)
 
 def commit_DPTop50():
 
@@ -57,7 +59,7 @@ def commit_DPTop50():
 
 
     # 4. Commit the repo to save the changes 
-    commit_command = subprocess.run(["git", "commit", "-m", "adding more files"])
+    commit_command = subprocess.run(["git", "commit", "-m", " adding files " + timestamp])
     # print("The exit code for commint_command is %d" % commit_command.returncode)
 
     # 5. Add remote repository 
@@ -96,7 +98,7 @@ def commit_Leetcode():
     # print("The exit code for add_remote_repo_command is %d" % add_remote_repo_command.returncode)
 
     # 6. Push the changes 
-    push_command = subprocess.run(["git", "push", "-f", "origin", "master"])
+    push_command = subprocess.run(["git", "push", "-f", "origin", "May-Month"])
     push_success = push_command.returncode
 
     if push_success == 0 :
