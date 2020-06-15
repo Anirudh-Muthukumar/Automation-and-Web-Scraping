@@ -112,5 +112,10 @@ def Codeforces():
     CreateFolders()
 
 # Call the functions here
-# LeetCode()
-Codeforces()
+print("\nChoose the directory:\n1. Leetcode\n2. Codeforces\n")
+n = int(input())
+
+if n==1:
+    LeetCode()
+elif n==2:
+    Codeforces()
