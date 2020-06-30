@@ -1,7 +1,7 @@
 import os, glob
 import sys
 
-leetcode_dir = '../Leetcode-solutions/'
+leetcode_dir = '../Leetcode-Solutions/'
 codeforces_dir = '../Codeforces/'
 
 # Reset current directory
